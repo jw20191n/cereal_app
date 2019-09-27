@@ -5,10 +5,6 @@ class Transaction < ApplicationRecord
     belongs_to :user
     belongs_to :cereal
 
-    
-
-
-    def cereal_amount
 
 end
 
