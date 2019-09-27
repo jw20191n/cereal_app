@@ -1,0 +1,10 @@
+<h1>Create Cereal</h1>
+<%= form_for @cereal do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :amount %>
+<%= f.text_field :amount %>
+<%= f.label :user_id, "Name" %>
+<%= f.collection_select :user_id, User.all, :id, :name %>
+<%= f.submit %>
+<% end %>

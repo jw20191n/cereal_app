@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  taker_id: 1
+  giver_id: 1
+  cereal_id: 1
+  amount: 1
+
+two:
+  taker_id: 1
+  giver_id: 1
+  cereal_id: 1
+  amount: 1

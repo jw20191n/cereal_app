@@ -1,0 +1,6 @@
+<h1>Welcome to Cereal Trader</h1>
+<% @cereals.uniq{|x| x.name}.each do |cereal| %>
+    <li><%= cereal.name %></li>
+<% end %>
+
+<%= button_to "New", new_cereal_path, method: :get  %>
