@@ -14,7 +14,10 @@ class CerealsController < ApplicationController
     end
 
     def create
-        @cereal = Cereal.create(cereal_params)
+        
+        img_url = find_image(params[:name])
+        @cereal = Cereal.create(cereal_params, img_url: img_url)
+        
         redirect_to cereal_path(@cereal)
     end
 
@@ -39,6 +42,7 @@ class CerealsController < ApplicationController
     end
 
     def cereal_params
-        params.require(:cereal).permit(:name, :user_id, :amount)
+
+        params.require(:cereal).permit(:name, :user_id, :amount, :img_url)
     end
 end

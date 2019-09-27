@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
     before_action :find_user, only: [:show, :edit, :update]
 
+    def home
+        render :home
+    end
+
     def show
         render :show
     end

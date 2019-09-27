@@ -6,20 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Group.destroy_all
+User.destroy_all
+Cereal.destroy_all
+Transaction.destroy_all
+Review.destroy_all
 
 g1 = Group.create(name: "Mod2", location: "8th floor")
 g2 = Group.create(name: "Mod4", location: "8th floor")
 
-user1 = User.create(name:"Amber", img_url:"XX", group_id: g1.id)
-user2 = User.create(name:"Claire", img_url:"XX", group_id: g2.id)
+user1 = User.create(name:"Amber", img_url:"XX", group_id: g1.id, username: "amber", password: "123")
+user2 = User.create(name:"Claire", img_url:"XX", group_id: g2.id, username: "claire", password: "dog")
 
-c1 = Cereal.create(name:"Lucky Charm", amount:10, user_id: 1)
-c2 = Cereal.create(name:"Cheerio", amount:10, user_id: 2)
+c1 = Cereal.create(name:"Lucky Charm", amount:10, user_id: user1.id, img_url: "https://images-na.ssl-images-amazon.com/images/I/91%2BxMrv0uOL._SX569_.jpg")
+c2 = Cereal.create(name:"Cheerio", amount:10, user_id: user2.id, img_url: "https://ship.ralphs.com/img/Products/500/General-Mills/General-Mills-Honey-Nut-Cheerios-Cereal-016000124950.jpg")
 
-t1 = Transaction.create(user_id: 2, cereal_id: 1, amount: 2)
+t1 = Transaction.create(user_id: user2.id, cereal_id: c1.id, amount: 2)
 
-r1 = Review.create(rating: 5.0, user_id: 2, cereal_id: 1)
-r2 = Review.create(rating: 4.0, user_id:1, cereal_id: 2)
+r1 = Review.create(rating: 5.0, user_id: user2.id, cereal_id: c1.id)
+r2 = Review.create(rating: 4.0, user_id:user1.id, cereal_id: c2.id)
 
 
 

@@ -1,4 +1,7 @@
 <h1><%= @cereal.name %></h1> 
-<h3><%= @cereal.user.name %></h3>
+<h3>Owner: <%= @cereal.user.name %></h3>
+<% if @cereal.img_url %>
+    <%= image_tag @cereal.img_url  %>
+<% end %>
 
 <%= button_to "edit", edit_cereal_path, method: :get  %>

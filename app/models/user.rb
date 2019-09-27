@@ -4,9 +4,8 @@ class User < ApplicationRecord
     has_many :reviews
     belongs_to :group
 
-    validates :name, presence: true
-    validates :name, uniqueness: true
-
+    # validates :name, presence: true
+    # validates :username, uniqueness: true
 
 
 end
