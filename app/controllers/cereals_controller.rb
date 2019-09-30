@@ -14,20 +14,26 @@ class CerealsController < ApplicationController
     end
 
     def create
-        
-        img_url = find_image(params[:name])
-        @cereal = Cereal.create(cereal_params, img_url: img_url)
-        
+        @cereal = Cereal.create(cereal_params)
+        cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
+        @cereal.img_url = @cereal.find_image(cereal_name)
+        @cereal.save
         redirect_to cereal_path(@cereal)
     end
 
     def edit
         render :edit
-    
     end
 
     def update
-        @cereal.update(cereal_params)
+        
+        if (params[:cereal][:img_url] == @cereal.img_url)
+            cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
+            @cereal.img_url = @cereal.find_image(cereal_name)
+            @cereal.update(param_without_img_url)
+        else
+            @cereal.update(cereal_params)
+        end
         redirect_to cereal_path(@cereal)
     end
 
@@ -42,7 +48,12 @@ class CerealsController < ApplicationController
     end
 
     def cereal_params
-
         params.require(:cereal).permit(:name, :user_id, :amount, :img_url)
     end
+
+    def param_without_img_url
+        params.require(:cereal).permit(:name, :user_id, :amount)
+    end
+
+
 end
