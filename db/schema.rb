@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_160026) do
     t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password"
+    t.string "password_digest"
     t.string "username"
   end
 

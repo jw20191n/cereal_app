@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    skip_before_action :authenticate, only: [:home, :new, :create]
     before_action :find_user, only: [:show, :edit, :update]
 
     def home
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+        session[:user_id] = @user.id
         redirect_to user_path(@user)
     end
 
@@ -29,14 +30,22 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
     end
 
+
+
     private
 
     def find_user
-        @user = User.find(params[:id])
+        # if session[:user]
+        @user = User.find(session[:user_id])
+        # else
+
+            # flash[:error] = "you need to login"
+            # redirect_to new_session_path
+        # end
     end
     
     def user_params
-        params.require(:user).permit(:name, :img_url)
+        params.require(:user).permit(:name, :username, :password, :img_url)
     end
 
 end

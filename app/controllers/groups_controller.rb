@@ -29,6 +29,13 @@ class GroupsController < ApplicationController
         redirect_to group_path(@group)
     end
 
+    def join
+        @user = User.find(session[:user_id])
+        @user.group_id = params[:group_id]
+        @user.save
+        redirect_to groups_path
+    end
+
     private
     def find_group
         @group = Group.find(params[:id])

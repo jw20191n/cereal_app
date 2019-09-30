@@ -4,4 +4,6 @@
     <%= image_tag @cereal.img_url  %>
 <% end %>
 
-<%= button_to "edit", edit_cereal_path, method: :get  %>
+<% if @cereal.user_id == session[:user_id] %>
+    <%= button_to "edit", edit_cereal_path, method: :get  %>
+<% end %>

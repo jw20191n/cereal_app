@@ -4,3 +4,7 @@
 <% @group.users.each do |user| %>
     <li>  <%= link_to user.name, user_path(user) %> </li>
 <% end %>
+
+
+
+<%= button_to "join group", { action:"join", :group_id => @group.id}, :method => :post %>

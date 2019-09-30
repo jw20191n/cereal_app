@@ -17,6 +17,7 @@ class CerealsController < ApplicationController
         @cereal = Cereal.create(cereal_params)
         cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
         @cereal.img_url = @cereal.find_image(cereal_name)
+        @cereal.user_id = session[:user_id]
         @cereal.save
         redirect_to cereal_path(@cereal)
     end
@@ -48,11 +49,11 @@ class CerealsController < ApplicationController
     end
 
     def cereal_params
-        params.require(:cereal).permit(:name, :user_id, :amount, :img_url)
+        params.require(:cereal).permit(:name, :amount, :img_url)
     end
 
     def param_without_img_url
-        params.require(:cereal).permit(:name, :user_id, :amount)
+        params.require(:cereal).permit(:name, :amount)
     end
 
 
