@@ -6,7 +6,5 @@
 <%= f.text_field :amount %>
 <%= f.label :img_url %>
 <%= f.text_field :img_url %>
-<%= f.label :user_id, "Name" %>
-<%= f.collection_select :user_id, User.all, :id, :name %>
 <%= f.submit %>
 <% end %>

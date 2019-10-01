@@ -1,8 +1,14 @@
 <h1><%= @user.name %></h1>
-
+<h2><%= @user.total %></h2>
 <% @user.cereals.each do |cereal| %>
-<h3><%= cereal.name %></h3>
+    <h3><%= cereal.name %></h3>
+    <%= image_tag cereal.img_url %>
+    <% cereal.transactions.each do |transaction| %>
+       <p><%= transaction.user.name %> has taken <%= transaction.amount %> cups from your <%= transaction.cereal.name %></p> 
+    <% end %>
 <% end %>
+
+
 
 <%= button_to "Manage Account", edit_user_path, method: :get  %>
 <%= button_to "Add cereal", new_cereal_path, method: :get  %>

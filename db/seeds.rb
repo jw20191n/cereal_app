@@ -9,7 +9,7 @@ Group.destroy_all
 User.destroy_all
 Cereal.destroy_all
 Transaction.destroy_all
-Review.destroy_all
+Comment.destroy_all
 
 g1 = Group.create(name: "Mod2", location: "8th floor")
 g2 = Group.create(name: "Mod4", location: "8th floor")
@@ -22,8 +22,8 @@ c2 = Cereal.create(name:"Cheerio", amount:10, user_id: user2.id, img_url: "https
 
 t1 = Transaction.create(user_id: user2.id, cereal_id: c1.id, amount: 2)
 
-r1 = Review.create(rating: 5.0, user_id: user2.id, cereal_id: c1.id)
-r2 = Review.create(rating: 4.0, user_id:user1.id, cereal_id: c2.id)
+r1 = Comment.create(content: "goodbye world!!", user_id: user2.id, cereal_id: c1.id)
+r2 = Comment.create(content: "hello world!", user_id:user1.id, cereal_id: c2.id)
 
 
 

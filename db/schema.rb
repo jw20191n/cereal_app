@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_160026) do
+ActiveRecord::Schema.define(version: 2019_10_01_183339) do
 
   create_table "cereals", force: :cascade do |t|
     t.string "name"
@@ -21,17 +21,17 @@ ActiveRecord::Schema.define(version: 2019_09_27_160026) do
     t.string "img_url"
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "cereal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.float "rating"
-    t.integer "user_id"
-    t.integer "cereal_id"
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_160026) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "username"
+    t.integer "total", default: 0
   end
 
 end

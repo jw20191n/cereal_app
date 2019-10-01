@@ -1,10 +1,14 @@
 class CerealsController < ApplicationController
     before_action :find_cereal, only: [:show, :edit, :update, :destroy]
+    skip_before_action :authenticate, only: [:index, :show]
     def index
         @cereals = Cereal.all
     end
 
     def show
+        @comment = Comment.new
+        @comments = Comment.where(cereal_id: @cereal.id)
+        @transaction = Transaction.new
         render :show
     end
 
@@ -19,6 +23,7 @@ class CerealsController < ApplicationController
         @cereal.img_url = @cereal.find_image(cereal_name)
         @cereal.user_id = session[:user_id]
         @cereal.save
+        @cereal.user.total = @cereal.user.total_cereal
         redirect_to cereal_path(@cereal)
     end
 
