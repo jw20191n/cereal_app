@@ -1,5 +1,9 @@
-<% if session[:user_id] %>
-    <h2>Hello, <%= User.find(session[:user_id]).name  %>!!!</h2>
-<%  end %>
+<div class="welcome">
+    <% if session[:user_id] %>
+        <h2>Hello, <%= User.find(session[:user_id]).name  %>!!!</h2>
+    <%  end %>
+    
+    <h1 >Welcome to cereal trader!</h1>
 
-<h1>Welcome to cereal trader!</h1>
+    <img src="https://media1.tenor.com/images/031c57bf60fa63032baa50d63188c8aa/tenor.gif?itemid=13830332" alt="cereal rain" class="welcome_img">
+</div>

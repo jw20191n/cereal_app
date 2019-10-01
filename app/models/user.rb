@@ -10,9 +10,13 @@ class User < ApplicationRecord
     # validates :username, uniqueness: true
     
     def update_total(someamount)
-        self.total += someamount
+        self.total += someamount.to_i
         self.save
-        return
+    end
+
+    def subtract_total(someamount)
+        self.total -= someamount.to_i
+        self.save
     end
 
 

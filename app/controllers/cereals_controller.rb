@@ -23,7 +23,7 @@ class CerealsController < ApplicationController
         @cereal.img_url = @cereal.find_image(cereal_name)
         @cereal.user_id = session[:user_id]
         @cereal.save
-        @cereal.user.total = @cereal.user.total_cereal
+        @cereal.user.update_total(params[:cereal][:amount])
         redirect_to cereal_path(@cereal)
     end
 

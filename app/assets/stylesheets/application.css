@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ .welcome{
+    text-align: center;
+ }
+
+ img.welcome_img{
+    text-align: center;
+    width:70%;
+ }
+
+ h1{
+    font-family: 'Mansalva', cursive;
+ }
+
+ h2 {
+    font-family: 'Permanent Marker', cursive;
+ }
+

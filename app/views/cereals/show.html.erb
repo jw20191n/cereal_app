@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @cereal.user_id == session[:user_id] %>
-    <%= button_to "edit", edit_cereal_path, method: :get  %>
+    <!-- <%= button_to "edit", edit_cereal_path, method: :get  %> -->
 <% else %>
     <%= form_for @transaction do |f| %>
     <%= f.label :amount %>
@@ -36,7 +36,7 @@
         output.innerHTML = trans_value.value; 
 
         trans_value.oninput = function() {
-            if this.value != null {
+            if (this.value != null) {
                 output.innerHTML = this.value;
             }  
         }
