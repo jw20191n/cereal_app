@@ -6,6 +6,13 @@ class GroupsController < ApplicationController
         render :index
     end
 
+    def leave
+        @user = User.find(session[:user_id])
+        @user.group_id = nil
+        @user.save
+        redirect_to user_path(@user)
+    end
+
     def new
         @group = Group.new
         render :new
@@ -33,8 +40,10 @@ class GroupsController < ApplicationController
         @user = User.find(session[:user_id])
         @user.group_id = params[:group_id]
         @user.save
-        redirect_to groups_path
+        redirect_to user_path(@user)
     end
+
+
 
     private
     def find_group

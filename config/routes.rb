@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   # get '/sessions', to
   delete '/sessions', to: 'sessions#destroy', as: 'session'
+
+  get '/group/leave', to: 'groups#leave', as: 'leave'
   post '/group/:id', to: 'groups#join', as: 'join'
+
   get 'cereals/list/:name', to: 'cereals#list', as: 'list'
  
 

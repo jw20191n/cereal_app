@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :transactions
     # has_many :reviews
     has_many :comments
+    # has_one_attached :avatar
     belongs_to :group, optional: true
 
     # validates :name, presence: true

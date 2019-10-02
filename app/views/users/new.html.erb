@@ -1,14 +1,22 @@
 <h1>Create User</h1>
 <%= form_for @user do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :password %>
-<%= f.password_field :password %>
+    <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+    </div>
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
 <!-- <%= f.label :group_id %>
 <%= f.collection_select :group_id, Group.all, :id, :name %> -->
-<%= f.label :img_url %>
-<%= f.text_field :img_url %>
+    <div class="form-group">
+        <%= f.label :img_url %>
+        <%= f.text_field :img_url %>
+    </div>
 <%= f.submit %>
 <% end %>

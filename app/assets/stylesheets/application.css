@@ -33,7 +33,11 @@ h2 {
     text-align: center;
  }
 
+h4{
+    margin:0 8px 0 0;
+    padding:0;
 
+}
  .container{
      margin-top: 20px;
  }
@@ -64,3 +68,8 @@ img.profile{
     height: 250px;
     border-radius: 10%;
 } */
+
+.group_icon{
+    width:30px;
+    height:30px;
+}
