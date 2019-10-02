@@ -9,6 +9,7 @@ class CerealsController < ApplicationController
         @comment = Comment.new
         @comments = Comment.where(cereal_id: @cereal.id)
         @transaction = Transaction.new
+        @user = User.find(session[:user_id])
         render :show
     end
 
@@ -19,6 +20,7 @@ class CerealsController < ApplicationController
 
     def create
         @cereal = Cereal.create(cereal_params)
+
         cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
         @cereal.img_url = @cereal.find_image(cereal_name)
         @cereal.user_id = session[:user_id]
@@ -34,7 +36,7 @@ class CerealsController < ApplicationController
     def update
         
         if (params[:cereal][:img_url] == @cereal.img_url)
-            cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
+            cereal_name = params[:cereal][:name].split.join("+") + "+cereal"
             @cereal.img_url = @cereal.find_image(cereal_name)
             @cereal.update(param_without_img_url)
         else
@@ -46,6 +48,11 @@ class CerealsController < ApplicationController
     def destroy
         @cereal.destroy
         redirect_to cereals_path
+    end
+
+    def list
+        @cereals = Cereal.where(name: params[:name])
+        render :list
     end
 
     private

@@ -1,14 +1,65 @@
-<h1><%= @user.name %></h1>
-<h2>You can eat <%= @user.total %> cups of cereal in total!!!!</h2>
-<% @user.cereals.each do |cereal| %>
-    <h3><%= cereal.name %></h3>
-    <%= image_tag cereal.img_url %>
-    <% cereal.transactions.each do |transaction| %>
-       <p><%= transaction.user.name %> has taken <%= transaction.amount %> cups from your <%= transaction.cereal.name %></p> 
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3">
+            <!-- <% if !@user.img_url.include?("http") && @user.img_url.include?("/images/")%>
+                <% img_url = image_path(@user.img_url) %>    
+            <% else %>
+                <% img_url = @user.img_url %>
+            <% end %> -->
+            <img src="<%= img_url %>" alt="<%=@user.name%>'s profile picture" class="profile">
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                    <h1><%= @user.name %></h1>
+                    <a href="/users/<%= @user.id%>/edit"> 
+                        <img src="https://cdn4.iconfinder.com/data/icons/material-design-4/614/2981_-_Power_Settings_New-512.png" alt="something " width="35px" height="35px" class="new_cereal_button">
+                    </a>
+            </div>
+            <div class="row">
+                    <h4>Username: <%= @user.username %></h4>
+            </div>
+            <div class="row">
+                    <% if @user.group  %>
+                        <h4>Group: <%= @user.group.name %></h4>
+                    <% else %>
+                        <a href="/groups">join group</a>
+                    <% end %>
+            </div>
+            <div class="row">
+                <h2>You can eat <b style="color:red"><%= @user.total %></b> cups of cereal in total!!!!</h2>
+            </div>
+        </div>
+    </div>
+
+    <h3>Your past contribution</h3>
+<div class="row">
+    <% @user.cereals.each do |cereal| %>
+        <div class="col-sm-4 product-grid col-lg-2 col-xs-6">
+            <%= image_tag cereal.img_url %>
+            <!-- <%= button_to "Manage Account", edit_user_path, method: :get  %>
+            <%= button_to "Add cereal", new_cereal_path, method: :get  %> -->
+        </div>
     <% end %>
-<% end %>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <h3>Transaction History</h3>
+        <% @user.cereals.each do |cereal| %>
+        <% cereal.transactions.each do |transaction| %>
+                <li><%= transaction.user.name %> has taken <%= transaction.amount %> cups from your <%= transaction.cereal.name %></li> 
+            <% end %>
+        <% end %>
+    </div>
+</div>
+    
+<!-- <%= button_to "Manage Account", edit_user_path, method: :get  %> -->
+
+<a href="/cereals/new"> 
+    <img src="<%= image_path('cereal_new.png')%>" alt="something " width="150px" height="150px" class="new_cereal_button">
+</a>
 
 
-
-<%= button_to "Manage Account", edit_user_path, method: :get  %>
-<%= button_to "Add cereal", new_cereal_path, method: :get  %>
+</div>

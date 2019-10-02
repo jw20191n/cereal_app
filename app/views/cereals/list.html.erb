@@ -1,0 +1,14 @@
+<div class="container">
+
+    <div class="row">
+        <% @cereals.each do |cereal| %>
+            <div class="col-sm-4 product-grid col-lg-2 col-xs-6">
+                <p><%= cereal.user.name %>'s <%= cereal.name %></p>
+                <a href="/cereals/<%= cereal.id %> ">
+                    <img src=" <%= cereal.img_url %> " alt=" <%= cereal.name %> "  class="img-responsive" >
+                </a>
+                <p>Remaining amount: <b style="color:red" ><%= cereal.amount %></b> cups</p>
+            </div>
+        <% end  %>
+    </div>
+</div>

@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
     # validates :name, presence: true
     # validates :username, uniqueness: true
+
+    before_save :make_title_case
     
     def update_total(someamount)
         self.total += someamount.to_i
@@ -19,5 +21,8 @@ class User < ApplicationRecord
         self.save
     end
 
+    def make_title_case
+        self.name = self.name.titlecase
+    end
 
 end

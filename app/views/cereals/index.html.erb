@@ -1,6 +1,25 @@
 
-<% @cereals.uniq{|x| x.name}.each do |cereal| %>
-    <li><%= link_to  cereal.name, cereal_path(cereal) %></li>
-    
-<% end %>
-<%= button_to "New", new_cereal_path, method: :get  %>
+<div class="container">
+    <h1>Cereal Selection</h1>
+    <div class="row">
+        <% @cereals.uniq{|x| x.name}.each do |cereal| %>
+            <div class="col-sm-4 product-grid col-lg-2 col-xs-6">
+                <!-- <li><%= link_to  cereal.name, list_path(cereal.name) %></li> -->
+                <a href="/cereals/list/<%= cereal.name %> ">
+                    <img src=" <%= cereal.img_url %> " alt=" <%= cereal.name %> "  class="img-responsive" >
+                </a>
+            </div>
+            
+        <% end %>
+    </div>
+    <!-- <%= button_to "New", new_cereal_path, method: :get  %> -->
+
+
+    <a href="/cereals/new"> 
+            <img src="<%= image_path('cereal_new.png')%>" alt="something " width="150px" height="150px" class="new_cereal_button">
+    </a>
+
+
+</div>
+
+

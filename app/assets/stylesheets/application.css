@@ -25,9 +25,42 @@
 
  h1{
     font-family: 'Mansalva', cursive;
- }
+    text-align: center;
+ } 
 
- h2 {
+h2 {
     font-family: 'Permanent Marker', cursive;
+    text-align: center;
  }
 
+
+ .container{
+     margin-top: 20px;
+ }
+
+.row{
+    margin: 20px;
+}
+
+.col-lg-2{
+    margin-bottom: 30px;
+}
+
+.new_cereal_button{
+    margin: 10px 45% ;
+} 
+
+img.profile{
+    /* border-image: 50% 50%; */
+
+    max-width: 250px;
+    height:250px;
+    border-radius: 10%;
+}
+
+/* div.profile{
+    background: url(https://static.boredpanda.com/blog/wp-content/uploads/2019/07/funny-exotic-long-hair-cat-zuu-fb9-png__700.jpg) 50% 50% no-repeat; centers image in div 
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
+} */

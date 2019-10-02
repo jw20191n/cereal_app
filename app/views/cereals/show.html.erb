@@ -5,18 +5,28 @@
     <%= image_tag @cereal.img_url  %>
 <% end %>
 
-<% if @cereal.user_id == session[:user_id] %>
-    <!-- <%= button_to "edit", edit_cereal_path, method: :get  %> -->
-<% else %>
-    <%= form_for @transaction do |f| %>
-    <%= f.label :amount %>
-    <input type="range" min="1" max=<%= @cereal.amount %> value = "<%=@cereal.amount/2.0%>" name = "transaction[amount]"  id="amount">
-    <div id="append_value"></div>
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
-    <%= f.hidden_field :cereal_id, value: @cereal.id %>
-    <%= f.submit %>
+<!-- <% if @cereal.user_id == session[:user_id] %>
+     <%= button_to "edit", edit_cereal_path, method: :get  %>
+<% else %> -->
+
+    
+    <% @user = User.find(session[:user_id]) %>
+    <% if @user.total > 0  %>
+        
+        <%= form_for @transaction do |f| %>
+        <%= f.label :amount %>
+        <input type="range" min="1" max=<%= @user.total < @cereal.amount ? @user.total : @cereal.amount %> value = "1" name = "transaction[amount]"  id="amount">
+        <div id="append_value"></div>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+        <%= f.hidden_field :cereal_id, value: @cereal.id %>
+        <%= f.submit %>
+        <% end %>
+    <% else %>
+        <h3>You can not take from other's cereal box. Please bring more cereal to the platform.</h3>
     <% end %>
-<% end %>
+   
+    <!-- <% end %> -->
+
 <% @comments.each do |comment| %>
     <p><%= comment.content %> -<%= comment.user.username %></p>
 <% end %>
