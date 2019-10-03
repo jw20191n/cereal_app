@@ -3,11 +3,13 @@ class CerealsController < ApplicationController
     skip_before_action :authenticate, only: [:index, :show]
     def index
         @cereals = Cereal.all
+        
     end
 
     def show
         @comment = Comment.new
         @comments = Comment.where(cereal_id: @cereal.id)
+        @transactions = @cereal.transactions
         @transaction = Transaction.new
         @user = User.find(session[:user_id])
         render :show
@@ -19,22 +21,25 @@ class CerealsController < ApplicationController
     end
 
     def create
-        @cereal = Cereal.create(cereal_params)
-
+        @cereal = Cereal.new(cereal_params)
+        if !@cereal.save
+            flash[:errors] = @cereal.errors.full_messages
+            redirect_to new_cereal_path
+        else
         cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
         @cereal.img_url = @cereal.find_image(cereal_name)
         @cereal.user_id = session[:user_id]
         @cereal.save
         @cereal.user.update_total(params[:cereal][:amount])
         redirect_to cereal_path(@cereal)
+        end
     end
 
     def edit
         render :edit
     end
 
-    def update
-        
+    def update      
         if (params[:cereal][:img_url] == @cereal.img_url)
             cereal_name = params[:cereal][:name].split.join("+") + "+cereal"
             @cereal.img_url = @cereal.find_image(cereal_name)
@@ -51,7 +56,8 @@ class CerealsController < ApplicationController
     end
 
     def list
-        @cereals = Cereal.where(name: params[:name])
+        @cereal = Cereal.where(name: params[:name])
+        @cereals = @cereal.sort_by{ |cereal| cereal.amount}.reverse
         render :list
     end
 

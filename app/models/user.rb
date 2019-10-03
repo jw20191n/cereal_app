@@ -7,8 +7,8 @@ class User < ApplicationRecord
     # has_one_attached :avatar
     belongs_to :group, optional: true
 
-    # validates :name, presence: true
-    # validates :username, uniqueness: true
+    validates :name, presence: true
+    validates :username, uniqueness: true
 
     before_save :make_title_case
     

@@ -1,5 +1,14 @@
-<% @groups.each do |group| %>
-    <li> <%= link_to  group.name, group_path(group)  %></li>
-<% end  %>
+<div class="container">
 
-<%= button_to "New", new_group_path, method: :get  %>
+    <div class="row">
+        <% @groups.each do |group| %>
+            <div class="col-lg-3">
+                <a href="/groups/<%= group.id %>"><img src="<%= group.img_url %>" alt="<%= group.name %> image" width="200px" height="200px"></a><br>
+                <%= link_to  group.name, group_path(group)  %><br>
+                Location: <%= group.location %>
+            </div> 
+        <% end  %>
+    </div>
+    <%= button_to "New", new_group_path, method: :get  %>
+
+</div>

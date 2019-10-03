@@ -3,15 +3,21 @@
 <% if flash[:error] %>
         <%=flash[:error]  %>
 <% end %>
-
-<%= form_tag sessions_path do %>
-<div class="form-group">
-<%= label_tag :for, "username" %>
-<%= text_field_tag :"user[username]" %>
+<div class="container">
+        <div class="card" style="border-color:hotpink;">
+                <%= form_tag sessions_path do %>
+                <div class="form-group">
+                <%= label_tag :for, "username" %><br>
+                <%= text_field_tag :"user[username]", nil, placeholder: 'username', class: 'form-input'  %>
+                </div>
+                <div class="form-group">
+                <%= label_tag :for, "password" %><br>
+                <%= password_field_tag :"user[password]", nil, placeholder: 'password' %>
+                </div>
+                <div class="form-group">
+                        <!-- <%= submit_tag 'login' %> -->
+                        <input type="submit" value="Login" class="form-button">
+                </div>
+                <% end %>
+        </div>
 </div>
-<div class="form-group">
-<%= label_tag :for, "password" %>
-<%= password_field_tag :"user[password]" %>
-</div>
-<%= submit_tag 'login' %>
-<% end %>

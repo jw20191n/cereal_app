@@ -1,11 +1,26 @@
-<h1>Create Cereal</h1>
 
-<%= form_for @cereal do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :amount %>
-<%= f.text_field :amount %>
-<!-- <%= f.label :user_id, "Name" %>
-<%= f.collection_select :user_id, User.all, :id, :name %> -->
-<%= f.submit %>
-<% end %>
+<div class="container">
+        
+        <h1>Create Cereal</h1>
+        <div class="card" style="border-color:hotpink;">
+                <% if flash[:errors] %>
+                        <% flash[:errors].each do |error| %>
+                        <p style="color:red"><%= error %></p>
+                        <% end %>
+                 <% end %>
+                <%= form_tag cereals_path do %>
+                <div class="form-group">
+                <%= label_tag :for, "Name" %><br>
+                <%= text_field_tag :"cereal[name]", nil, placeholder: 'Name'  %>
+                </div>
+                <div class="form-group">
+                <%= label_tag :for, "Amount" %><br>
+                <%= text_field_tag :"cereal[amount]", nil, placeholder: 'cups' %>
+                </div>
+                <div class="form-group">
+                        <!-- <%= submit_tag 'login' %> -->
+                        <input type="submit" value="Create" class="form-button">
+                </div>
+                <% end %>
+        </div>
+</div>

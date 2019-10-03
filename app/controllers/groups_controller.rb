@@ -51,6 +51,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-        params.require(:group).permit(:name, :location)
+        params.require(:group).permit(:name, :location, :img_url)
     end
 end

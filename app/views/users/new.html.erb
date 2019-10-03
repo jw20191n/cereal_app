@@ -1,22 +1,36 @@
 <h1>Create User</h1>
-<%= form_for @user do |f| %>
-    <div class="form-group">
-        <%= f.label :username %>
-        <%= f.text_field :username %>
+
+<div class="container" >
+    <div class="card " style="border-color:hotpink;">
+        <%= form_for @user do |f| %>
+            <div class="form-group">
+                <%= f.label :username %><br>
+                <%= f.text_field :username, placeholder: 'username'%>
+            </div>
+            <div class="form-group">
+                <%= f.label :name %><br>
+                <%= f.text_field :name, placeholder: 'name' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :password %><br>
+                <%= f.password_field :password, placeholder: 'password' %>
+            </div>
+        <!-- <%= f.label :group_id %>
+        <%= f.collection_select :group_id, Group.all, :id, :name %> -->
+            <!-- <div class="form-group">
+                <%= f.label :img_url %><br>
+                <%= f.text_field :img_url , placeholder: 'image url'%>
+            </div> -->
+            
+            <% num = rand(1..1000) %>
+            <%= f.hidden_field :img_url, value: "https://picsum.photos/id/#{num}/200/200" %>
+
+            <div class="form-group">
+                <!-- <%= f.submit%> -->
+                <input type="submit" value="Sign Up" class="form-button">
+            </div>
+
+        <% end %>
     </div>
-    <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </div>
-    <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </div>
-<!-- <%= f.label :group_id %>
-<%= f.collection_select :group_id, Group.all, :id, :name %> -->
-    <div class="form-group">
-        <%= f.label :img_url %>
-        <%= f.text_field :img_url %>
-    </div>
-<%= f.submit %>
-<% end %>
+</div>
+

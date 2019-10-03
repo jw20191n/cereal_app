@@ -33,7 +33,12 @@ h2 {
     text-align: center;
  }
 
+ h3{
+    font-family: 'PT Sans Narrow', sans-serif;
+ }
+
 h4{
+    font-family: 'PT Sans Narrow', sans-serif;
     margin:0 8px 0 0;
     padding:0;
 
@@ -55,21 +60,64 @@ h4{
 } 
 
 img.profile{
-    /* border-image: 50% 50%; */
-
     max-width: 250px;
     height:250px;
     border-radius: 10%;
 }
 
-/* div.profile{
-    background: url(https://static.boredpanda.com/blog/wp-content/uploads/2019/07/funny-exotic-long-hair-cat-zuu-fb9-png__700.jpg) 50% 50% no-repeat; centers image in div 
-    width: 250px;
-    height: 250px;
-    border-radius: 10%;
-} */
-
 .group_icon{
     width:30px;
     height:30px;
 }
+
+.form-group{
+    padding:0 60px;
+}
+
+.card{
+   margin-left:auto;
+   margin-right: auto;
+   width:300px;
+}
+
+.form-button{
+    background-color: hotpink;
+    border:0;
+    border-radius:15%;
+    color:white;
+    margin:0 60px;
+}
+
+.profiles{
+    padding:10px;
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button{
+      background-image: url(join_group.png);
+  }
+
+  .image{
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .nav-link{
+      color:white;
+  }
+
+  .navbar-toggler{
+      color:white;
+  }
+
+
+

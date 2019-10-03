@@ -4,6 +4,8 @@ class Cereal < ApplicationRecord
     has_many :transactions
     has_many :comments
     delegate :group, to: :user
+    validates :name,:amount, presence: true
+    validates :amount, numericality: {greater_than: 0, only_integer:true}
 
 
     before_save :make_title_case
