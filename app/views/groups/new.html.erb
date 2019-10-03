@@ -3,6 +3,11 @@
 <div class="container">
         <h1>Create Group</h1>
         <div class="card" style="border-color:hotpink;">
+                <% if flash[:errors] %>
+                        <% flash[:errors].each do |message|%>
+                        <p style="color:red;"><%= message %></p>
+                        <% end %>
+                <% end %>
                 <%= form_tag groups_path do %>
                 <div class="form-group">
                 <%= label_tag :for, "Name" %><br>
