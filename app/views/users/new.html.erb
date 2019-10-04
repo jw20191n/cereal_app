@@ -2,6 +2,11 @@
 
 <div class="container" >
     <div class="card " style="border-color:hotpink;">
+        <% if flash[:errors] %>
+            <% flash[:errors].each do |message| %>
+            <p style="color:red;"><%= message %></p>
+            <% end %>
+        <% end %>
         <%= form_for @user do |f| %>
             <div class="form-group">
                 <%= f.label :username %><br>
@@ -15,13 +20,6 @@
                 <%= f.label :password %><br>
                 <%= f.password_field :password, placeholder: 'password' %>
             </div>
-        <!-- <%= f.label :group_id %>
-        <%= f.collection_select :group_id, Group.all, :id, :name %> -->
-            <!-- <div class="form-group">
-                <%= f.label :img_url %><br>
-                <%= f.text_field :img_url , placeholder: 'image url'%>
-            </div> -->
-            
             <% num = rand(1..1000) %>
             <%= f.hidden_field :img_url, value: "https://picsum.photos/id/#{num}/200/200" %>
 

@@ -22,13 +22,14 @@ class CerealsController < ApplicationController
 
     def create
         @cereal = Cereal.new(cereal_params)
+        @cereal.user_id = session[:user_id]
         if !@cereal.save
             flash[:errors] = @cereal.errors.full_messages
             redirect_to new_cereal_path
         else
-        cereal_name = params[:cereal][:name].split.join("+") + "+cereal+box"
+        cereal_name = params[:cereal][:name].split.join("+") + "+cereal"
         @cereal.img_url = @cereal.find_image(cereal_name)
-        @cereal.user_id = session[:user_id]
+        
         @cereal.save
         @cereal.user.update_total(params[:cereal][:amount])
         redirect_to cereal_path(@cereal)

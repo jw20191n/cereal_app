@@ -19,8 +19,13 @@ class GroupsController < ApplicationController
     end
 
     def create
-        @group = Group.create(group_params)
-        redirect_to group_path(@group)
+        @group = Group.new(group_params)
+        if @group.save  
+            redirect_to group_path(@group)
+        else
+            flash[:errors] = @group.errors.full_messages
+            redirect_to new_group_path
+        end
     end
 
     def show
@@ -32,8 +37,12 @@ class GroupsController < ApplicationController
     end
 
     def update
-        @group.update(group_params)
-        redirect_to group_path(@group)
+        if @group.update(group_params)
+            redirect_to group_path(@group)
+        else
+            flash[:errors] = @group.errors.full_messages
+            redirect_to edit_group_path
+        end
     end
 
     def join
