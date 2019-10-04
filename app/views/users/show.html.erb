@@ -54,7 +54,7 @@
         <% end %>
     </div>
     <div class="col-sm-6 col-lg-6">
-        <h4>Whose cereal did took from?</h4>
+        <h4>Whose cereal did I took from?</h4>
             <% @user.transactions.each do |transaction| %>
                 <li>You have taken <%= transaction.amount %> cups from <%= transaction.cereal.user.name  %>'s <%= transaction.cereal.name %></li>
              <% end %>
