@@ -4,7 +4,7 @@
 <div class="container">
         <div class="card" style="border-color:hotpink;">
                 <% if flash[:error] %>
-                        <p style = "color:red;"><%=flash[:error]  %></p>
+                        <p style = "color:red;" class="warning"><i class="fas fa-exclamation-circle"></i>  <%=flash[:error]  %></p>
                 <% end %>
                 <%= form_tag sessions_path do %>
                 <div class="form-group">

@@ -4,7 +4,7 @@
     <div class="card " style="border-color:hotpink;">
         <% if flash[:errors] %>
             <% flash[:errors].each do |message| %>
-            <p style="color:red;"><%= message %></p>
+            <p style="color:red;" class="warning"><i class="fas fa-exclamation-circle"></i> <%= message %></p>
             <% end %>
         <% end %>
         <%= form_for @user do |f| %>

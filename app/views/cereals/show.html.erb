@@ -15,7 +15,7 @@
         <% if @user.total > 0  %>
                 <%= form_for @transaction do |f| %>
                 <%= f.label :amount %>
-                <input type="range" min="0" max=<%= @user.total < @cereal.amount ? @user.total : @cereal.amount %> value = "1" name = "transaction[amount]"  id="amount">
+                <input type="range" min="0" max=<%= @user.total < @cereal.amount ? @user.total : @cereal.amount %> value = "0" name = "transaction[amount]"  id="amount">
                 <div id="append_value"></div>
                 <% if [1,2,3,4,5,6,7,8,9,10].sample == 5%>
                 <%= f.hidden_field :user_id, value: @cereal.user_id %>

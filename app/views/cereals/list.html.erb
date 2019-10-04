@@ -2,10 +2,15 @@
 
     <div class="row">
         <% @cereals.each do |cereal| %>
-            <div class="col-sm-4 product-grid col-lg-2 col-xs-6">
+            <div class="col-sm-4 product-grid col-lg-2 col-xs-6 relative-container">
                 <p><%= cereal.user.name %>'s <%= cereal.name %></p>
                 <a href="/cereals/<%= cereal.id %> ">
-                    <img src=" <%= cereal.img_url %> " alt=" <%= cereal.name %> "  class="img-responsive" >
+                    <% if cereal.amount == 0 %>
+                        <img src=" <%= cereal.img_url %> " alt=" <%= cereal.name %> "  class="img-responsive" style="opacity:0.3;">
+                        <div class="text-over-img">DONE</div>
+                    <% else %>
+                        <img src=" <%= cereal.img_url %> " alt=" <%= cereal.name %> "  class="img-responsive" >
+                    <% end %>
                 </a>
                 <p>Remaining amount: <b style="color:red" ><%= cereal.amount %></b> cups</p>
             </div>

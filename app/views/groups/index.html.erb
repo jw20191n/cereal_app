@@ -4,8 +4,8 @@
         <% @groups.each do |group| %>
             <div class="col-lg-3">
                 <a href="/groups/<%= group.id %>"><img src="<%= group.img_url %>" alt="<%= group.name %> image" width="200px" height="200px"></a><br>
-                <%= link_to  group.name, group_path(group)  %><br>
-                Location: <%= group.location %>
+                <%= link_to  group.name, group_path(group), { :class => "link-css"} %><br>
+                <p class="normal-title-font">Location: <%= group.location %></p>
             </div> 
         <% end  %>
     </div>

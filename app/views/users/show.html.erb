@@ -3,11 +3,6 @@
 
     <div class="row">
         <div class="col-lg-3">
-            <!-- <% if !@user.img_url.include?("http") && @user.img_url.include?("image")%>
-                <% img_url = image_path(@user.img_url) %>    
-            <% else %>
-                <% img_url = @user.img_url %>
-            <% end %> -->
             <img src="<%= @user.img_url %>" alt="<%=@user.name%>'s profile picture" class="profile">
         </div>
         <div class="col-lg-9">
@@ -37,10 +32,13 @@
     <h3>Your past contribution</h3>
 <div class="row">
     <% @user.cereals.each do |cereal| %>
-        <div class="col-sm-4 product-grid col-lg-2 col-xs-6">
-            <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url %></a>
-            <!-- <%= button_to "Manage Account", edit_user_path, method: :get  %>
-            <%= button_to "Add cereal", new_cereal_path, method: :get  %> -->
+        <div class="col-sm-4 product-grid col-lg-2 col-xs-6 relative-container">
+            <% if cereal.amount == 0 %>
+                <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url, :style => "opacity:0.3" %></a>
+                <div class="text-over-img">DONE</div>
+            <% else %>
+                <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url %></a>
+            <% end %>
         </div>
     <% end %>
 </div>

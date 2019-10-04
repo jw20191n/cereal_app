@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  .welcome{
     text-align: center;
  }
@@ -93,23 +94,29 @@ img.profile{
     text-align: center;
 }
 
+/* group show */
 .center {
-    display: block;
+    /* display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
   }
+
+  .image{
+    width: 70px;
+    height: 70px;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+.col-lg-3{
+    overflow: hidden;
+}
 
   .button{
       background-image: url(join_group.png);
   }
 
-  .image{
-      width: 100px;
-      height: 100px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-  }
 
   .nav-link{
       color:white;
@@ -119,5 +126,35 @@ img.profile{
       color:white;
   }
 
+p.warning {
+    padding-left:10px;
+}
 
+.link-css{
+    color:black;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size:25px;
+}
 
+.link-css:hover{
+    color: hotpink;
+}
+
+p.normal-title-font{
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size:20px;
+}
+
+/* cereal list */
+.relative-container{
+    position: relative;
+}
+
+.text-over-img{
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-weight: bold;
+}

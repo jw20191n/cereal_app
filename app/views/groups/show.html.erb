@@ -1,21 +1,27 @@
 
 <div class="container">
-    <div class="col-lg-12">
-
-        <h1><%=  @group.name  %></h1>
-        <img src="<%= @group.img_url%>" alt="you are blind" class="center">
-        <h2><%= @group.location  %></h2>
-        <h3>Members:</h3>
-        <div class="row">
-        <% @group.users.each do |user| %>
-            <div class="profiles">
-                <img src="<%=user.img_url%>" alt="<%=user.name%>'s profile" width="150px" height="150px" style="border-radius:50%;"><br>
-                <%= user.name %>
-            </div>
-        <% end %>
+    <div class="row">
+        <div class="col-lg-3">
+            <img src="<%= @group.img_url%>" alt="you are blind" class="center">       
         </div>
-        <%= link_to  image_tag("join_group.png", class:"image"), {:controller => 'groups', :action => 'join',:group_id => @group.id} , :method => 'post'%>
-      
-        
+        <div class="col-lg-9">
+            <h1 style="text-align: left;"><%=  @group.name  %></h1>
+            <h2 style="text-align: left;"><%= @group.location  %></h2>
+            <%= link_to  image_tag("join_group.png", class:"image"), {:controller => 'groups', :action => 'join',:group_id => @group.id} , :method => 'post'%>
+        </div>
     </div>
+
+    <br>
+    <h3>Members:</h3>
+    <div class="row">
+    <% @group.users.each do |user| %>
+        <div class="profiles">
+            <img src="<%=user.img_url%>" alt="<%=user.name%>'s profile" width="150px" height="150px" style="border-radius:50%;"><br>
+            <%= user.name %>
+        </div>
+    <% end %>
+    </div>
+
+      
+
 </div>
