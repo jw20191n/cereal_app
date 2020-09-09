@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.0'
 # gem 'sqlite3', '~> 1.4'
 
 # Use PostgreSQL for database since heroku does not support sqlite3
-gem 'pg'
+# gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # gem 'dotenv'
 # gem 'google_custom_search_api'
+
+gem 'ncurses-ruby'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
