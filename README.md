@@ -1,7 +1,7 @@
 <h1 align="middle"> Cereal Trader :bowl_with_spoon:</h1>
 
 ## Problem 
-This is another Ordinary day at the Flatiron School. You arrive at your floor at 8:59 in the morning and are ready to have a cup of your favorite cereal. You love this brand so much that you took a box to the office from home. When you open the box, guess what happened? It is EMPTY!!!! 
+This is another Ordinary day at the Flatiron School. You arrive at your floor at 8:59 in the morning and are ready to have a cup of your favorite cereal. You love this brand so much that you took a box to the office from home. When you open the box, guess what happened? It is **EMPTY!!!!** 
 <p >
   <img src="app/assets/images/angry-homer-simpson-icegif.gif" >
 </p>
