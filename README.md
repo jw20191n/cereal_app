@@ -16,5 +16,5 @@ The ultimate solution to this problem is -- Cereal Trader,  a Ruby app that allo
 One could use the app to keep track of who took from your box with Cereal Trader, or whose cereal did you took from. 
 
 ## Technology
-* Scraped cereal box pictures from Google Image using Nokogiri
+* Scraped cereal box pictures from Walmart using Nokogiri
 * Developed the app with Ruby, HTML, CSS and RESTful API
