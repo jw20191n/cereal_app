@@ -12,8 +12,11 @@ class Cereal < ApplicationRecord
 
     #get_cereal_image = blah
     def find_image(cereal_name)
-        doc = Nokogiri::HTML(open("https://www.google.com/search?q=#{cereal_name}&sxsrf=ACYBGNSxi3DW583RYv6F2QS0VrBnFp4_IA:1569725185387&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj9pceAgvXkAhWBTN8KHeyJD2YQ_AUIEigB&biw=1309&bih=695"))
-        src_tag = doc.css('img').map{|i| i['src']}[0]
+        # doc = Nokogiri::HTML(open("https://www.google.com/search?q=#{cereal_name}&sxsrf=ACYBGNSxi3DW583RYv6F2QS0VrBnFp4_IA:1569725185387&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj9pceAgvXkAhWBTN8KHeyJD2YQ_AUIEigB&biw=1309&bih=695"))
+        cereal_url = "https://www.walmart.com/search/?query=#{cereal_name}+cereal"        
+        html = open(cereal_url)
+        doc = Nokogiri::HTML(html)
+        src_tag = doc.css('.search-product-result').css('img').map{|i| i['src']}[0]
         return "#{src_tag}"
     end
 

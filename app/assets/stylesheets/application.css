@@ -155,8 +155,12 @@ p.normal-title-font{
 .text-over-img{
     position: absolute;
     top: 45%;
-    left: 40%;
+    left: 55%;
     transform: translate(-50%, -50%);
     color: red;
     font-weight: bold;
+}
+
+.img-responsive{
+    width: 200px;
 }

@@ -34,10 +34,10 @@
     <% @user.cereals.each do |cereal| %>
         <div class="col-sm-4 product-grid col-lg-2 col-xs-6 relative-container">
             <% if cereal.amount == 0 %>
-                <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url, :style => "opacity:0.3" %></a>
+                <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url, style: 'width:200px; opacity:0.3' %></a>
                 <div class="text-over-img">DONE</div>
             <% else %>
-                <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url %></a>
+                <a href="/cereals/<%= cereal.id %>"><%= image_tag cereal.img_url, style: 'width:200px' %></a>
             <% end %>
         </div>
     <% end %>

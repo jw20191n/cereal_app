@@ -2,7 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-2">
-            <%= image_tag @cereal.img_url  %>
+            <%= image_tag @cereal.img_url, style: 'width:200px' %>
+
         </div>
         <div class="col-lg-10">
             <h3>Owner: <%= @cereal.user.name %></h3>
