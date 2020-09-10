@@ -14,11 +14,11 @@ Comment.destroy_all
 g1 = Group.create(name: "Mod2", location: "8th floor")
 g2 = Group.create(name: "Mod4", location: "8th floor")
 
-user1 = User.create(name:"Amber", img_url:"XX", group_id: g1.id, username: "amber", password: "123")
-user2 = User.create(name:"Claire", img_url:"XX", group_id: g2.id, username: "claire", password: "dog")
+user1 = User.create(name: "Amber", img_url: "app/asset/images/amber-profile.gif", group_id: g1.id, username: "amber", password: "123")
+user2 = User.create(name: "Claire", img_url: "app/assets/images/claire-profile.gif", group_id: g2.id, username: "claire", password: "123")
 
-c1 = Cereal.create(name:"Lucky Charm", amount:10, user_id: user1.id, img_url: "https://images-na.ssl-images-amazon.com/images/I/91%2BxMrv0uOL._SX569_.jpg")
-c2 = Cereal.create(name:"Cheerio", amount:10, user_id: user2.id, img_url: "https://ship.ralphs.com/img/Products/500/General-Mills/General-Mills-Honey-Nut-Cheerios-Cereal-016000124950.jpg")
+c1 = Cereal.create(name:"Lucky Charm", amount:10, user_id: user1.id, img_url: "https://d2d8wwwkmhfcva.cloudfront.net/800x/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_3cc8a67b-f85d-4cb0-9e6e-5ac9d141a276.jpeg")
+c2 = Cereal.create(name:"Cheerio", amount:10, user_id: user2.id, img_url: "https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_d7740407-e105-4dd2-98ac-047e2c2c81ac.jpeg")
 
 t1 = Transaction.create(user_id: user2.id, cereal_id: c1.id, amount: 2)
 
