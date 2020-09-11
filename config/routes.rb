@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#home', as: 'home'
+  root 'welcome#index'
   resources :comments, only: [:create]
   resources :groups
   resources :transactions, only: [:create]
