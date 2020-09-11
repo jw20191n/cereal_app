@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root 'users#home'
+  root 'users#home', as: 'home'
   resources :comments, only: [:create]
   resources :groups
   resources :transactions, only: [:create]
   resources :cereals
   resources :users, only: [:show, :new, :create, :edit, :update]
-  get '/', to: 'users#home', as: 'home'
+  # get '/', to: 'users#home', as: 'home'
   resources :sessions, only: [:new, :create]
   # get '/sessions', to
   delete '/sessions', to: 'sessions#destroy', as: 'session'
