@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:create]
   resources :cereals
   resources :users, only: [:show, :new, :create, :edit, :update]
-  # get '/', to: 'users#home', as: 'home'
+  get '/home', to: 'users#home', as: 'home'
   resources :sessions, only: [:new, :create]
   # get '/sessions', to
   delete '/sessions', to: 'sessions#destroy', as: 'session'
