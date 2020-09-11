@@ -15,6 +15,8 @@ begin
               "Exit" ]
 
   menu_items = []
+  
+  MenuBasics = "Choice 1"
 
   choices.each_with_index do | choice, index |
     menu_items << Ncurses::Menu::ITEM.new(choice, "")
